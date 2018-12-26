@@ -10,25 +10,27 @@ import XCTest
 @testable import TenMillionArray
 
 class TenMillionArrayTests: XCTestCase {
-
+    let controller = ViewController()
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        print("log>\(#function)")
     }
-
+    
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        print("log>\(#function)")    }
+    
+    
+    func testArrayHasMoreThanOneMillionItem(){
+        XCTAssertEqual(controller.getGoldenUsers(from: oneMillion) .count, oneMillion)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
     func testPerformanceExample() {
-        // This is an example of a performance test case.
+        print("log>\(#function)")
+        
         self.measure {
-            // Put the code you want to measure the time of here.
+            let _ =  controller.selectRandomly(from: oneMillion, callback: {result in
+                print(result)
+            })gs
         }
     }
-
+    
+    
 }
